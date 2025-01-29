@@ -8,3 +8,4 @@ void img_fillcircle(struct color c, double x, double y, double r);
 void img_fillu(struct color c, double x, double y, double r);
 void img_fille(struct color c, double x, double y, double r);
 void img_fillc(struct color c, double x, double y, double r);
+void img_fillrec(struct color c, double x, double y, double r);

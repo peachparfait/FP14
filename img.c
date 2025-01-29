@@ -67,3 +67,13 @@ void img_fillc(struct color c, double x, double y, double r) {
     }
   }
 }
+void img_fillrec(struct color c, double x, double y, double r) {
+  int imin = (int)(x - r - 1), imax = (int)(x + r + 1);
+  int jmin = (int)(y - r - 1), jmax = (int)(y + 2*r + 1);
+  int i, j;
+  for(j = jmin; j <= jmax; ++j) {
+    for(i = imin; i <= imax; ++i) {
+      if((x-i)>=-r*0.8 && (x-i)<=r && y-j<=-r*2+r/8 && y-j>=-r*2) { img_putpixel(c, i, j); }
+    }
+  }
+}
