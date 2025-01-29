@@ -32,6 +32,17 @@ void img_putpixel(struct color c, int x, int y) {
   buf[HEIGHT-y-1][x][2] = c.b;
 }
 
+void img_fillcircle(struct color c, double x, double y, double r) {
+  int imin = (int)(x - r - 1), imax = (int)(x + r + 1);
+  int jmin = (int)(y - r - 1), jmax = (int)(y + r + 1);
+  int i, j;
+  for(j = jmin; j <= jmax; ++j) {
+    for(i = imin; i <= imax; ++i) {
+      if((x-i)*(x-i) + (y-j)*(y-j) <= r*r) { img_putpixel(c, i, j); }
+    }
+  }
+}
+
 void img_fillu(struct color c, double x, double y, double r) {
   int imin = (int)(x - r - 1), imax = (int)(x + r + 1);
   int jmin = (int)(y - r - 1), jmax = (int)(y + r + 1);
